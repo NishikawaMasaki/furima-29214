@@ -1,19 +1,55 @@
-require_relative 'boot'
+# テーブル設計
 
-require 'rails/all'
+## users テーブル
 
-# Require the gems listed in Gemfile, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+| Column    | Type    | Options     |
+| --------- | ------- | ----------- |
+| nickname  | string  | null: false |
+| email     | string  | null: false |
+| password  | string  | null: false |
 
-module Furima29214
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+##| name kanji    | string  | null: false |
+##| name katakana | string  | null: false |
+##| birthday      | integer | null: false |
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
-  end
-end
+### Association
+
+- has_many :items
+- has_one :buy
+
+## items テーブル
+
+| Column  | Type        | Options                        |
+| ------  | ----------- | ------------------------------ |
+| image   | string      | null: false                    |
+| text    | string      | null: false                    |
+| user_id | references  | null: false, foreign_key :true |
+
+
+### Association
+- has_one :buy
+- belongs_to :users
+
+## buys テーブル
+
+| Column  | Type        | Options                        |
+| ------  | ----------- | ------------------------------ |
+| text    | string      | null: false                    |
+| user_id | references  | null: false, foreign_key :true |
+| item_id | references  | null: false, foreign_key :true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :item
+
+## address テーブル
+
+| Column | Type        | Options                        |
+| ------ | ----------- | ------------------------------ |
+| text   | string      | null: false                    |
+| buy_id | references  | null: false, foreign_key :true |
+
+### Association
+
+- belongs_to :buy
