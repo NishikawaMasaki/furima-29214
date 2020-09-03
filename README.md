@@ -24,11 +24,11 @@
 | -------- | ----------- | ------------------------------ |
 | name     | string      | null: false                    |
 | explain  | text        | null: false                    |
-| category | string      | null: false                    |
-| status   | string      | null: false                    |
-| delivery | string      | null: false                    |
-| area     | string      | null: false                    |
-| day      | string      | null: false                    |
+| category | integer     | null: false                    |
+| status   | integer     | null: false                    |
+| delivery | integer     | null: false                    |
+| area     | integer     | null: false                    |
+| day      | integer     | null: false                    |
 | price    | integer     | null: false                    |
 | user     | references  | null: false, foreign_key :true |
 
@@ -55,11 +55,11 @@
 | Column     | Type        | Options                        |
 | ---------- | ----------- | ------------------------------ |
 | postal     | string      | null: false                    |
-| prefecture | string      | null: false                    |
+| prefecture | integer     | null: false                    |
 | city       | string      | null: false                    |
 | number     | integer     | null: false                    |
-| building   | string      | null: false                    |
-| tel        | integer     | null: false                    |
+| building   | string      |                                |
+| tel        | string      | null: false                    |
 | buy        | references  | null: false, foreign_key :true |
 
 ### Association

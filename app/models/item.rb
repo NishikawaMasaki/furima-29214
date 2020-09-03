@@ -4,6 +4,7 @@ class Item < ActiveHash::Base
     { id: 2,name: 'レディース' }
     { id: 3,name: 'メンズ' }
     { id: 4,name: 'ベビー・キッズ' }
+    
 
   ]
 end
