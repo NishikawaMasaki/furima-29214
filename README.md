@@ -57,7 +57,7 @@
 | postal     | string      | null: false                    |
 | prefecture | integer     | null: false                    |
 | city       | string      | null: false                    |
-| number     | integer     | null: false                    |
+| address    | string      | null: false                    |
 | building   | string      |                                |
 | tel        | string      | null: false                    |
 | buy        | references  | null: false, foreign_key :true |
