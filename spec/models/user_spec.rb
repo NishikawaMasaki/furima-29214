@@ -60,7 +60,7 @@ describe User do
       end
       it "半角英数字混在でない場合保存ができないい" do
         @user.save
-        @user.password = "0"
+        @user.password = "000000"
         @user.valid?
         expect(@user.errors.full_messages).to include()
       end
