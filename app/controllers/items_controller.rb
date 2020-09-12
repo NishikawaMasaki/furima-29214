@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-
+#before_action :move_to_index
+before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def index
     @items = Item.all
   end
@@ -17,6 +18,12 @@ class ItemsController < ApplicationController
         render :new
       end
   end
+
+  #def move_to_index
+    #unless user_signed_in?
+      #redirect_to action: :new
+    #end
+  #end
   
     private
   
