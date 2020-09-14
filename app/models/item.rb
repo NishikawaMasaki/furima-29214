@@ -11,5 +11,6 @@ class Item < ApplicationRecord
 
   validates :name, :explain, :category, :status, :shipping_fee, :area, :day, :price, presence: true
   validates :category_id, :status_id, :shipping_fee_id, :area_id, :day_id, numericality: { other_than: 1 } 
+  validates :price, inclusion: { in: 300..9999999 }, format: { with: /\A[a-zA-Z0-9]+\z/ }
 
 end
