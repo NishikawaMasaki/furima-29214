@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column   | Type        | Options                        |
-| -------- | ----------- | ------------------------------ |
-| name     | string      | null: false                    |
-| explain  | text        | null: false                    |
-| category | integer     | null: false                    |
-| status   | integer     | null: false                    |
-| delivery | integer     | null: false                    |
-| area     | integer     | null: false                    |
-| day      | integer     | null: false                    |
-| price    | integer     | null: false                    |
-| user     | references  | null: false, foreign_key :true |
+| Column       | Type        | Options                        |
+| ------------ | ----------- | ------------------------------ |
+| name         | string      | null: false                    |
+| explain      | text        | null: false                    |
+| category     | integer     | null: false                    |
+| status       | integer     | null: false                    |
+| shipping fee | integer     | null: false                    |
+| area         | integer     | null: false                    |
+| day          | integer     | null: false                    |
+| price        | integer     | null: false                    |
+| user         | references  | null: false, foreign_key: true |
 
 
 ### Association
@@ -41,8 +41,8 @@
 
 | Column  | Type        | Options                        |
 | ------  | ----------- | ------------------------------ |
-| user    | references  | null: false, foreign_key :true |
-| item    | references  | null: false, foreign_key :true |
+| user    | references  | null: false, foreign_key: true |
+| item    | references  | null: false, foreign_key: true |
 
 ### Association
 
@@ -60,7 +60,7 @@
 | address    | string      | null: false                    |
 | building   | string      |                                |
 | tel        | string      | null: false                    |
-| buy        | references  | null: false, foreign_key :true |
+| buy        | references  | null: false, foreign_key: true |
 
 ### Association
 
