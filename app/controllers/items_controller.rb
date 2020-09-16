@@ -18,26 +18,24 @@ before_action :authenticate_user!, only: [:new, :create ]
     end
   end
 
-    def destroy
-      item = Item.find(params[:id])
-      item.destroy
-    end
-  
-    def edit
-      @item = Item.find(params[:id])
-    end
-  
-    def update
-      item = Item.find(params[:id])
-      item.update(item_params)
-    end
-  
-    def show
-      @item = Item.find(params[:id])
-    end
-  
- 
+  def show
+    @item = Item.find(params[:id])
+  end
 
+    #def destroy
+     # item = Item.find(params[:id])
+     # item.destroy
+    #end
+  
+    #def edit
+    #  @item = Item.find(params[:id])
+   # end
+  
+   # def update
+    #  item = Item.find(params[:id])
+    #  item.update(item_params)
+    #end
+  
   private
   
   def item_params
