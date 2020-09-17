@@ -32,8 +32,11 @@ before_action :set_item, only: [:edit, :update, :show, :destroy ]
   end
 
   def destroy
-    @item.destroy
-    redirect_to root_path
+    if @item.destroy
+       redirect_to root_path
+    else
+      render :show
+    end
   end
   
   private
