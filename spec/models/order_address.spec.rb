@@ -20,6 +20,10 @@ describe OrderAddress do
         @order_address.tel = "09012345678"
         expect(@order_address).to be_valid
       end
+      it "buildingが空のとき" do
+        @order_address.building = ""
+        expect(@order_address).to be_valid
+      end
 
     context '商品購入がうまくいかない時' do
       it "tokenが空のとき" do
@@ -38,9 +42,9 @@ describe OrderAddress do
         expect(@order_address.errors.full_messages).to include("Postal is invalid")
       end
       it "prefectureが空のとき" do
-        @order_address.prefecture = ''
+        @order_address.prefecture = '1'
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_address.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it "cityが空のとき" do
         @order_address.city = ''
@@ -62,13 +66,12 @@ describe OrderAddress do
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include("Tel is invalid")
       end
+      it "telが12桁以上あるとき" do
+        @order_address.tel = '0901234567890'
+        @order_address.valid?
+        expect(@order_address.errors.full_messages).to include("Tel is invalid")
+      end
     end
-
-      
-
-
-
-
     end
   end
 end
