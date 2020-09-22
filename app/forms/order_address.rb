@@ -4,6 +4,7 @@ class OrderAddress
   attr_accessor :postal, :prefecture, :city, :address, :building, :tel, :item_id, :user_id, :token
 
   validates :postal, :prefecture, :city, :address, :tel, :token, presence: true
+  validates :prefecture, numericality: { other_than: 1 }
   validates :postal, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
   validates :tel, format: { with: /\A\d{10}$|^\d{11}\z/ }
 

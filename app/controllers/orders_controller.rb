@@ -4,11 +4,7 @@ class OrdersController < ApplicationController
     if current_user.id == @item.user_id
       redirect_to root_path
     end
-    @order = Order.new
-  end
-
-  def new
-    @address = OrderAddress.new
+    @order = OrderAddress.new
   end
 
   def create
