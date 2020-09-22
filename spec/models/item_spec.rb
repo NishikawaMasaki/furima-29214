@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 describe Item do
   before do
     @user = FactoryBot.create(:user)
@@ -75,14 +76,7 @@ describe Item do
         @item.price = '９９９９'
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not included in the list")
-        end 
+      end 
     end 
-
-   
-
-
-
-    
-
   end    
 end
