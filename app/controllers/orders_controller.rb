@@ -1,8 +1,10 @@
 class OrdersController < ApplicationController
   def index
-    @order = Order.new
     @item = Item.find(params[:item_id])
-    return redirect_to root_path if @item.order !=nil
+    if current_user.id == @item.user_id
+      redirect_to root_path
+    end
+    @order = Order.new
   end
 
   def new
