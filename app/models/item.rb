@@ -15,3 +15,4 @@ class Item < ApplicationRecord
   validates :price, inclusion: { in: 300..9999999 }, format: { with: /\A[a-zA-Z0-9]+\z/ }
 
 end
+
